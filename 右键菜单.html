@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+           margin:0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        #menu {
+            width:100px;
+            border:1px solid #ccc;
+            display:none;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        #menu li{
+            border-top:1px dashed #ccc;
+            text-align:center;
+            cursor:pointer;
+        }
+        #menu li:hover{
+            background:#ccc;
+        }
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li>查看</li>
+        <li>排序方式</li>
+        <li>下载</li>
+        <li>重新加载</li>
+        <li>另存为</li>
+        <li>打印</li>
+        <li>投射</li>
+        <li>检查</li>
+    </ul>
+
+    <script>
+        var oMenu = document.getElementById("menu");
+        var oLi = oMenu.getElementsByTagName("li");
+        document.oncontextmenu =function (e){
+            oMenu.style.display = "block";
+            oMenu.style.top = e.clientY+"px";
+            oMenu.style.left = e.clientX+"px";
+            return false;
+        }
+        for(var i=0;i<oLi.length;i++){
+            oLi[i].onclick = function(){
+                alert(this.innerHTML);
+            }
+        }
+        document.onclick = function(){
+            oMenu.style.display = "none";
+        }
+    </script>
+</body>
+</html>
