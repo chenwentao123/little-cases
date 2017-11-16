@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>折叠菜单</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style: none;
+        }
+        #container{
+            width:300px;
+            border:1px solid;
+            text-align:center;
+            margin:100px auto;
+        }
+        .submenu h3{
+            background:#000;
+            color:#fff;
+            cursor:pointer;
+        }
+        .submenu ul{
+            display:none;
+        }
+        .submenuli:hover{
+            background:#ccc;
+        }
+    </style>
+</head>
+<body>
+
+        <ul id="container">
+            <li class="submenu">
+                <h3>管理区</h3>
+                <ul>
+                    <li>001</li>
+                    <li>002</li>
+                    <li>003</li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <h3>交流区</h3>
+                <ul>
+                    <li>001</li>
+                    <li>002</li>
+                    <li>003</li>
+                </ul>
+            </li>
+        </ul>
+
+    <script>
+        var oContainer = document.getElementById('container');
+        var aH3 = oContainer.getElementsByTagName('h3');
+        var oUl = oContainer.getElementsByTagName('ul');
+        for(var i=0;i<aH3.length;i++) {
+            aH3[i].index = i;
+            aH3[i].onclick = function () {
+//                oUl[this.index].style.display = 'block';
+                if (oUl[this.index].style.display == 'block') {//关闭
+                    oUl[this.index].style.display = 'none';
+                } else {//打开
+                    oUl[this.index].style.display = 'block';
+                }
+           }
+        }
+    </script>
+</body>
+</html>
