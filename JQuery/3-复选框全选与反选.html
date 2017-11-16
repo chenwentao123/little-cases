@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复选框全选与反选</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<form action="">
+    <legend>你爱好的运动是？</legend>
+    <div id="container">
+        <div id="checkbox">
+            <label for="soccer">足球</label>
+            <input type="checkbox" id="soccer" name="hobby">
+            <label for="basketball">篮球</label>
+            <input type="checkbox" id="basketball" name="hobby">
+            <label for="yumaoqiu">羽毛球</label>
+            <input type="checkbox" id="" id="yumaoqiu" name="hobby">
+            <label for="pingpnag">乒乓球</label>
+            <input type="checkbox" id="pingpnag" name="hobby">
+        </div>
+        <div id="button">
+            <button id="all" type="button">全选</button>
+            <button id="none" type="button">全不选</button>
+            <button id="reverse" type="button">反选</button>
+            <button id="submit" type="submit">提交</button>
+        </div>
+    </div>
+</form>
+
+<script src="jquery-3.2.1.js"></script>
+<script>
+    $(function(){
+        var $hobbys =  $('input[name="hobby"]')
+        $('#all').on('click',function(){
+            $hobbys.prop('checked',true);
+        })
+        $('#none').on('click',function(){
+            $hobbys.prop('checked',false);
+        })
+        $('#reverse').on('click',function(){
+            $hobbys.each(function (index, elem, arr) {
+                 if ($(elem).prop('checked')) {
+                 $(elem).prop('checked', false);
+                 }else{
+                 $(elem).prop('checked', true);
+                 }
+//                this.checked = !this.checked;
+            });
+        })
+    })
+</script>
+</body>
+</html>

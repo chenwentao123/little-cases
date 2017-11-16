@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多行文本框高度变化</title>
+    <style>
+        span{
+            background:#ccc;
+            display:inline-block;
+            width:60px;
+            text-align:center;
+            height:28px;
+            line-height:28px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div id="container">
+            <div id="button">
+                <span class="bigger">放大</span>
+                <span class="smaller">缩小</span>
+            </div>
+            <textarea id="msg" rows="8" cols="20">多行文本框高度变化 多行文本框高度变化 多行文本框高度变化 多行文本框高度变化 多行文本框高度变化 多行文本框高度变化 多行文本框高度变化 多行文本框高度变化 多行文本框高度变化 多行文本框高度变化 多行文本框高度变化 多行文本框高度变化</textarea>
+        </div>
+    </form>
+
+    <script src="jquery-3.2.1.js"></script>
+
+    <script>
+        //正常变化
+//        $(function () {
+//            var $msg = $('#msg');
+//            $('.bigger').on('click',function(){
+//                if( $msg.height() < 500 ){
+//                    $msg.height( $msg.height() + 50 );
+//                }
+//            })
+//            $('.smaller').on('click',function(){
+//                if( $msg.height() > 50 ){
+//                    $msg.height( $msg.height() - 50 );
+//                }
+//            });
+//        });
+
+
+        //动画变化
+//        $(function(){
+//            var $msg = $('#msg');
+//            $('.bigger').on('click',function(){
+//                if(!$msg.is(':animated')){
+//                    if($msg.height()<500){
+//                        $msg.animate({height:"+=50"},400);
+//                    }
+//                }
+//            });
+//            $(".smaller").on('click',function(){//判断是否处于动画
+//                if(!$msg.is(":animated")){
+//                    if($msg.height()>50){
+//                        $msg.animate({height:"-=50"},400);
+//                    }
+//                }
+//            });
+//        })
+
+        //滚动变化
+        $(function(){
+            var $msg = $('#msg');//获取评论框
+            $('.bigger').on('click',function(){ //向上按钮绑定单击事件
+                if(!$msg.is(":animated")){//判断是否处于动画
+                    $msg.animate({ scrollTop  : "-=50" } , 400);
+                }
+            })
+            $('.smaller').on('click',function(){//向下按钮绑定单击事件
+                if(!$msg.is(":animated")){
+                    $msg.animate({ scrollTop  : "+=50" } , 400);
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

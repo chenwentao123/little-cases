@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复选框与提交</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<form action="">
+    你爱好的运动是？
+    <input type="checkbox" id="all-none">
+    <label for="all-none">全选/全不选</label>
+    <div id="container">
+        <div id="checkbox">
+            <label for="soccer">足球</label>
+            <input type="checkbox" id="soccer" name="hobby" value="足球">
+            <label for="basketball">篮球</label>
+            <input type="checkbox" id="basketball" name="hobby" value="篮球">
+            <label for="yumaoqiu">羽毛球</label>
+            <input type="checkbox" id="" id="yumaoqiu" name="hobby" value="羽毛球">
+            <label for="pingpnag">乒乓球</label>
+            <input type="checkbox" id="pingpnag" name="hobby" value="乒乓球">
+        </div>
+        <div id="button">
+            <button id="submit" type="submit">提交</button>
+        </div>
+    </div>
+</form>
+
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+        $(function(){
+            var $hobby = $('input[name="hobby"]');
+            $('#all-none').on('click',function(){
+                if($(this).prop('checked')){
+                    $('#checkbox input').prop('checked',true);
+                }else{
+                    $('#checkbox input').prop('checked',false);
+                }
+            });
+            $('#submit').on('click',function(){
+                var str = "你选中的是：\n";
+                $hobby.each(function(index,elem,arr){
+                    if($(elem).prop('checked')){
+                        str+=$(this).val()+"\n";
+                    }
+                })
+                alert(str);
+            });
+        })
+
+    </script>
+</body>
+</html>
