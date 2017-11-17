@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #content{
+            width:453px;
+            height:500px;
+            margin:100px auto;
+            border:1px solid #000;
+            background-color:#ccc;
+        }
+        #table {
+            list-style: none;
+            border-bottom:1px solid #000;
+            overflow: hidden;
+        }
+        #table li{
+            width:150px;
+            height:50px;
+            float:left;
+            text-align:center;
+            line-height:50px;
+            margin-right:1px;
+            background:#fff;
+            cursor: pointer;
+        }
+        #table .selected{
+            background-color:#000;
+            color:#fff;
+        }
+        #content2 div{
+            display:none;
+        }
+        #content2 .first{
+            display:block;
+          }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <ul id="table">
+            <li class="selected">html</li>
+            <li>css</li>
+            <li>JavaScript</li>
+        </ul>
+        <div id="content2">
+            <div class="first"><img src="img/57192412_p0.jpg" width="453px" height="450px"/></div>
+            <div><img src="img/57555512_p0%20(1).jpg" width="453px" height="450px"/></div>
+            <div><img src="img/58088117_p0.jpg" width="453px" height="450px"/></div>
+        </div>
+    </div>
+
+
+    <script>
+        var oTable = document.getElementById("table");
+        var oLi = oTable.getElementsByTagName("li");
+        var oContent2 = document.getElementById("content2");
+        var oDiv = oContent2.getElementsByTagName("div");
+        for(var i=0;i<oLi.length;i++){
+            oLi[i].index = i;
+            oLi[i].onclick =function(){
+                for(var i=0;i<oLi.length;i++){
+                    oLi[i].className = '';
+                    oDiv[i].className = '';
+                }
+                this.className = "selected";
+                oDiv[this.index].className = "first";
+            }
+        }
+
+    </script>
+</body>
+</html>
