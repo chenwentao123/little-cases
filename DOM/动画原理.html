@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画效果</title>
+    <style>
+        #div1{
+            width:200px;
+            height:100px;
+            background-color:#ff0000;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">开始动画</button>
+    <div id="div1"></div>
+
+    <script>
+        var oBtn = document.getElementById('btn');
+        var oDiv = document.getElementById('div1');
+
+        oBtn.onclick = function (){
+            var timer = setInterval(function(){
+                oDiv.style.width = oDiv.offsetWidth + 10 +'px';
+                if(oDiv.offsetWidth >= 500){
+                    clearInterval(timer);
+                }
+            },30)
+
+        }
+    </script>
+</body>
+</html>
