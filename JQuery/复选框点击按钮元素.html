@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复选框点击按钮增加元素</title>
+</head>
+<body>
+<button id="btn">add</button>
+<ul class="aa">
+    <li>1</li>
+    <li>2</li>
+</ul>
+
+<script src="jquery-3.2.1.js"></script>
+
+<script>
+    var i = 3;
+    $(function(){
+        $('#btn').on('click',function(){
+                $('.aa').append('<li>'+i+'</li>');
+                i++;
+        })
+    })
+</script>
+</body>
+</html>
