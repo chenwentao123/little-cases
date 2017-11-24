@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉框左右选择</title>
+    <style>
+        #select1,#select2{
+            width:100px;
+            height:160px;
+        }
+        .add,.add_all,.remove,.remove_all{
+            width:122px;
+            height:24px;
+            background:#898989;
+            margin:2px 2px;
+            padding:4px 10px;
+            cursor:pointer;
+            font-size:12px;
+            color:white;
+            display:block;
+        }
+        .content{
+            float:left;
+            text-align: center;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="congtainer">
+    <div class="content">
+            <select multiple="multiple" id="select1">
+                <option value="dawa">大娃</option>
+                <option value="erwa">二娃</option>
+                <option value="sanwa">三娃</option>
+                <option value="siwa">四娃</option>
+                <option value="wuwa">五娃</option>
+                <option value="liuwa">六娃</option>
+                <option value="qiwa">七娃</option>
+            </select>
+        <div class="decise">
+            <span class="add">选中添加到右边&gt;&gt;</span>
+            <span class="add_all">全部添加到右边&gt;&gt;</span>
+        </div>
+    </div>
+    <div class="content">
+        <select multiple="multiple" id="select2">
+            <option value="jinganghuluwa">金刚葫芦娃</option>
+        </select>
+        <div class="decise">
+            <span class="remove">选中添加到左边&lt;&lt;</span>
+            <span class="remove_all">全部添加到左边&lt;&lt;</span>
+        </div>
+    </div>
+</div>
+
+<script src="jquery-3.2.1.js"></script>
+<script>
+    $(function(){
+       $('#select1').on('dblclick','option',function(){
+            $(this).appendTo($('#select2'));
+       });
+       $('#select2').on('dblclick','option',function(){
+          $(this).appendTo($('#select1'));
+       });
+        $('.add').on('click', function(){
+            $('#select1 option:selected').appendTo($('#select2'));
+        });
+        $('.add_all').on('click', function(){
+            $('#select1 option').appendTo($('#select2'));
+        });
+        $('.remove').on('click', function(){
+            $('#select2 option:selected').appendTo($('#select1'));
+        });
+        $('.remove_all').on('click', function(){
+            $('#select2 option').appendTo($('#select1'));
+        });
+    });
+</script>
+</body>
+</html>
