@@ -94,11 +94,11 @@
         if ($(this).hasClass('selected')) {
          $(this)
          .removeClass('selected')
-         .find(':checkbox').attr('checked',false);
+         .find(':checkbox').prop('checked',false);
          }else{
          $(this)
          .addClass('selected')
-         .find(':checkbox').attr('checked',true);
+         .find(':checkbox').prop('checked',true);
          }
 
 //        var hasSelected=$(this).hasClass('selected');

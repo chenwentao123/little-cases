@@ -48,7 +48,7 @@
     </thead>
     <tbody>
     <tr>
-        <td><input type="radio" name="choice" value="" checked='checked'/></td>
+        <td><input type="radio" name="choice" value=""/></td>
         <td>张山</td>
         <td>男</td>
         <td>浙江宁波</td>
@@ -91,8 +91,11 @@
     $(function () {
         $('tbody>tr:odd').addClass('odd');
         $('tbody>tr:even').addClass('even');
+        var decise = true;
         $('tbody>tr').on('click',function() {
-            $(this).addClass('selected').siblings().removeClass('selected').end().find(':radio').attr('checked',true);
+            $(this).addClass('selected').siblings().removeClass('selected').end().find(':radio').prop('checked',function(index,oldPropertyValue){
+                return !oldPropertyValue;
+            }).end().siblings().find(':radio').removeProp('checked',true);
         });
         $('table :radio:checked').parents("tr").addClass('selected');
     });
