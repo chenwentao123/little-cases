@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>控制字体大小</title>
+    <title>控制字体大小 无限版</title>
     <style>
         * {
             margin: 0;
@@ -31,12 +31,6 @@
             color: white;
         }
 
-        .msg textarea {
-            width: 300px;
-            height: 80px;
-            height: 100px;
-            border: 1px solid #000;
-        }
     </style>
 </head>
 <body>
@@ -61,15 +55,15 @@
     $(function(){
         $('span').on('click',function(){
             var thisEle = $("#para").css("font-size");
-            var textFontSize = parseFloat(thisEle , 10);
-            var unit = thisEle.slice(-2);
+            var textFontSize = parseFloat(thisEle,10);
+//            var unit = thisEle.slice(-2);//获取单位
             var cName = $(this).attr("class");
             if(cName == "bigger"){
                 textFontSize += 2;
             }else if(cName == "smaller"){
                 textFontSize -= 2;
             }
-            $("#para").css("font-size", textFontSize + unit );
+            $("#para").css("font-size", textFontSize + 'px' );
         });
     });
 </script>
