@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>d定时器</title>
+</head>
+<style>
+    #div1{
+        width:300px;
+        background:#6D84B4;
+        margin-left:600px;
+        margin-top:300px;
+        color:#fff;
+        text-align:center;
+    }
+</style>
+<body>
+    <div id="div1"></div>
+
+    <script>
+        var oDiv = document.getElementById('div1');
+        function setTime(){
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth();
+            var day = date.getDate();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+            var str = year+"年"+month+"月"+day+"号"+hour+"时"+minute+"分"+second+"秒";
+            oDiv.innerHTML = str;
+        }
+        setTime();
+        setInterval(setTime,1000)
+    </script>
+</body>
+</html>
