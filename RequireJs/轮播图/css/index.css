@@ -1,0 +1,53 @@
+*{
+    margin:0;
+    padding:0;
+}
+ul{
+    list-style:none;
+}
+img{
+    border:0;
+}
+.container{
+    width:520px;
+    height:280px;
+    position:relative;
+}
+.pic img{
+    display:none;
+}
+.pic .selected{
+    display:block;
+}
+.tab ul{
+    position:absolute;
+    right:10px;
+    bottom:10px;
+}
+.tab li{
+    float:left;
+    width:20px;
+    height:20px;
+    background:#000;
+    color:#fff;
+    margin-right:3px;
+    text-align:center;
+    line-height:20px;
+    cursor:pointer;
+}
+.tab .selected{
+    background:#FF5500;
+}
+.arrows{
+    position:absolute;
+    left:10px;
+    bottom:10px;
+}
+.arrows .prev,.arrows .next{
+    background:#000;
+    color:#fff;
+    width:20px;
+    height:20px;
+    text-align:center;
+    line-height:20px;
+}
