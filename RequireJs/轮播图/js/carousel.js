@@ -16,11 +16,11 @@ define(['jquery'],function($){
        this.timer = null;
    }
    Carousel.prototype.init = function(settings){
-     $.extend(this.defaultSettings,settings);
-     this.$arrows.append(this.$prev).append(this.$next);
-     this.$container.append(this.$pic).append(this.$tab).append(this.$arrows).appendTo(this.defaultSettings.selector);
+       $.extend(this.defaultSettings, settings);
+       this.$arrows.append(this.$prev).append(this.$next);
+       this.$container.append(this.$pic).append(this.$tab).append(this.$arrows).appendTo(this.defaultSettings.selector);
      for(var i=0;i<this.defaultSettings.imgArr.length;i++){
-         this.$pic.append('<img src="'+this.defauleSettings.imgArr[i]+'"/>');
+         this.$pic.append('<img src="'+this.defaultSettings.imgArr[i]+'"/>');
          this.$tab.append('<li>'+(i+1)+'</li>');
      }
      $('img:eq(0)',this.$pic).add($('li:eq(0)', this.$tab)).addClass('selected');

@@ -10,7 +10,7 @@ require(['carousel'],function(Carousel){
    var c2 = new Carousel();
    var settings2 = {
        imgArr:['img/2.jpg','img/3.jpg','img/4.jpg'],
-       buttonStyle:cicle,
+       buttonStyle:'circle',
        selector:'#div2'
    }
    c2.init(settings2);
