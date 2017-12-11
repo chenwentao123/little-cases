@@ -17,7 +17,7 @@ define(['jquery'],function($){
    }
    Carousel.prototype.init = function(settings){
      $.extend(this.defaultSettings,settings);
-     this.$arrows.append.(this.$prev).append(this.$next);
+     this.$arrows.append(this.$prev).append(this.$next);
      this.$container.append(this.$pic).append(this.$tab).append(this.$arrows).appendTo(this.defaultSettings.selector);
      for(var i=0;i<this.defaultSettings.imgArr.length;i++){
          this.$pic.append('<img src="'+this.defauleSettings.imgArr[i]+'"/>');
@@ -41,6 +41,29 @@ define(['jquery'],function($){
            }
            changeImg();
        });
-   };
+       this.$next.on('click', function () {
+           that.nowIndex++;
+           if (that.nowIndex == that.defaultSettings.imgArr.length) {
+               that.nowIndex = 0;
+           }
+           changeImg();
+       });
+       this.$container.hover(function () {
+           clearInterval(that.timer);
+       }, function () {
+           play();
+       });
+       play();
 
+       function play() {
+           that.timer = setInterval(function () {
+               that.$next.trigger('click');
+           }, that.defaultSettings.speed);
+       }
+
+       function changeImg() {
+           $('li', that.$tab).eq(that.nowIndex).add($('img', that.$pic).eq(that.nowIndex)).addClass('selected').siblings().removeClass('selected');
+       }
+   };
+    return Carousel;
 });
