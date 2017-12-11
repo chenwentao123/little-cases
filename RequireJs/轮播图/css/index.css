@@ -19,7 +19,7 @@ img{
 .pic .selected{
     display:block;
 }
-.tab ul{
+.tab{
     position:absolute;
     right:10px;
     bottom:10px;
