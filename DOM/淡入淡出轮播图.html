@@ -8,20 +8,20 @@
             margin:0;
             padding:0;
         }
-        nav{
+        #container{
             width: 720px;
             height: 405px;
             margin:20px auto;
             overflow: hidden;
             position: relative;
         }
-        #index{
+        #tab{
             position: absolute;
             left:320px;
             bottom: 20px;
 
         }
-        #index li{
+        #tab li{
             width:8px;
             height: 8px;
             border: solid 1px gray;
@@ -29,11 +29,11 @@
             background-color: #eee;
             display: inline-block;
         }
-        #img{
+        #pic{
             width: 720px;
             height: 405px;
         }
-        #img li{
+        #pic img{
             width: 720px;
             height: 405px;
             position: absolute;/*必须设置为absolute，否则第一个li会把后面的都覆盖*/
@@ -41,85 +41,77 @@
             opacity: 0;
             transition: opacity 1s ease-in;
         }
-        #index .on{
+        #tab .on{
             background-color: black;
         }
-        #img .opa-on{
+        #pic .selected{
             opacity: 1;
         }
     </style>
 </head>
 <body>
 <!--淡入淡出-->
-<nav>
-    <ul id="index">
+<div id="container">
+    <ul id="tab">
         <li class="on"></li>
         <li></li>
         <li></li>
         <li></li>
     </ul>
-    <ul id="img">
-        <li class="opa-on"><img src="img/1.jpg" alt="img1"></li>
-        <li><img src="img/2.jpg" alt="img2"></li>
-        <li><img src="img/3.jpg" alt="img3"></li>
-        <li><img src="img/4.jpg" alt="img4"></li>
+    <div id="pic">
+        <img src="img/1.jpg" alt="img1" class="selected">
+        <img src="img/2.jpg" alt="img2">
+        <img src="img/3.jpg" alt="img3">
+        <img src="img/4.jpg" alt="img4">
         <!--<li><img src="img/img5.jpg" alt="img5"></li>-->
-    </ul>
-</nav>
+    </div>
+</div>
 
 
 <script>
-    var imgList=document.getElementById('img').getElementsByTagName('li');
-    var list=document.getElementById('index').getElementsByTagName('li');
-    var index=0;
+    var oContainer = document.getElementById('container');
+    var oPic = document.getElementById('pic');
+    var aImg = oPic.getElementsByTagName('img');
+    var oTab = document.getElementById('tab');
+    var aLi = oTab.getElementsByTagName('li');
+    var num = 0;
     var timer;
 
-    for(var i=0;i<list.length;i++){//鼠标覆盖上哪个小圆圈，图片就移动到哪个小圆圈，并停止
-        list[i].index=i;
-        list[i].onmouseover= function () {
-            var clickIndex=parseInt(this.index);
-            index=clickIndex;
-
-            moveImg(imgList,index);
-            moveIndex(list,index);
-            clearInterval(timer);
-        };
-        list[i].onmouseout= function () {//移开后继续轮播
-            play();
-        };
-
+    for(var i=0;i<aLi.length;i++) {
+        aLi[i].index = i;
+        aLi[i].onmouseover = function () {
+            num = this.index;
+            changeImg();
+        }
     }
 
-    var nextMove=function(){
-        index+=1;
-        if(index>=5){
-            index=0
-        }
-        moveImg(imgList,index);
-        moveIndex(list,index);
-    };
-    var play=function(){
-        timer=setInterval(function(){
-            nextMove();
-        },3000);
-    };
+      var oNext = function(){
+            num++;
+            if(num == aLi.length){
+                num = 0;
+            }
+        changeImg();
+    }
     play();
-
-    function moveImg(list,index) {
-        for(var i=0;i<list.length;i++){
-            if(list[i].className == 'opa-on'){//清除li的透明度样式
-                list[i].className='';
-            }
+    var changeImg = function(){
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].className='';
+            aImg[i].className = '';
         }
-        list[index].className = 'opa-on';
+        aLi[num].className = 'on';
+        aImg[num].className = 'selected';
     }
-    function moveIndex(list,num){//移动小圆圈
-        for(var i=0;i<list.length;i++){
-            if(list[i].className == 'on'){//清除li的背景样式
-                list[i].className='';
-            }
-        }
-        list[num].className = 'on';
+    oContainer.onmouseover = function () {
+        clearInterval(timer);
+    };
+    oContainer.onmouseout = function () {
+        play();
+    };
+
+    function play() {
+        timer = setInterval(function () {
+            oNext();
+        }, 2000);
     }
 </script>
 </body>
