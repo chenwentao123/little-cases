@@ -26,7 +26,8 @@
             cursor:pointer;
         }
         .img{
-            background-size: auto;
+            background-size:125px 125px;
+            background-repeat: no-repeat;
         }
         #container .img span{
             width:100%;
@@ -74,7 +75,7 @@
                     x:j,
                     y:i
                 };
-                oDiv.innerHtml = '<span></span>';
+                oDiv.innerHTML = '<span></span>';
                 oContainer.appendChild(oDiv);
             }
         }
@@ -86,6 +87,7 @@
 
         for(let i = 0;i<num;i++){
             aImg[i].style.transform = 'rotate('+Math.floor(Math.random()*40-20) +'deg)';
+            aImg[i].style.transitionDelay = (num - i) * 100 + 'ms';
             aImg[i].style.top = (rowGap + aImg[0].offsetHeight) * aImg[i].pos.y + rowGap + 'px';
             aImg[i].style.left = (colGap + aImg[0].offsetWidth) * aImg[i].pos.x + colGap + 'px';
 
