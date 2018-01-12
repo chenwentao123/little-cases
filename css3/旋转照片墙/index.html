@@ -25,15 +25,12 @@
             transition:all 1s ease;
             cursor:pointer;
         }
-        .img{
-            background-size:contain;
-            background-repeat: no-repeat;
-        }
         #container .img span{
             width:100%;
             height:100%;
             opacity:0;
             display:block;
+            transition: all 1s ease;
         }
     </style>
 </head>
@@ -82,6 +79,7 @@
                     x:j,
                     y:i
                 };
+                oDiv.index = i * col + j + 1;
                 oDiv.innerHTML = '<span></span>';
                 oContainer.appendChild(oDiv);
             }
@@ -93,11 +91,8 @@
 
 
         for(let i = 0;i<num;i++){
-            aImg[i].style.transform = 'rotate('+Math.floor(Math.random()*40-20) +'deg)';
             aImg[i].style.transitionDelay = (num - i) * 100 + 'ms';//延时效果
-            aImg[i].style.top = (rowGap + aImg[0].offsetHeight) * aImg[i].pos.y + rowGap + 'px';
-            aImg[i].style.left = (colGap + aImg[0].offsetWidth) * aImg[i].pos.x + colGap + 'px';
-
+            Position(i);
         }
 
         let bigColGap = (oContainer.offsetWidth - BIG_WIDTH) / 2,
@@ -105,8 +100,6 @@
         let bFlag = true;
 
         oContainer.onclick = function(e){
-            console.log(e.target);
-            console.log(this);
             if(e.currentTarget != e.target){
                 if(bFlag){
                     for (let i = 0; i < num; i++) {
@@ -121,20 +114,28 @@
                         let imgUrl;
                         if (e.target.tagName == 'DIV') {
                             imgUrl = e.target.index;
-                        } else { // span
+                        } else {
                             imgUrl = e.target.parentNode.index;
                         }
                         oSpan.style.backgroundImage = 'url(img/' + imgUrl + '.jpg)';
                         oSpan.style.backgroundPosition = -THUMB_WIDTH * aImg[i].pos.x + 'px ' + (-THUMB_HEIGHT * aImg[i].pos.y) + 'px';
+                        oSpan.style.backgroundSize = '750px 500px';
                     }
                     bFlag = false;
                 }else{
-                    aImg[i].style.transform = 'rotate('+Math.floor(Math.random()*40-20) +'deg)';
-                    aImg[i].style.transitionDelay = (num - i) * 100 + 'ms';//延时效果
-                    aImg[i].style.top = (rowGap + aImg[0].offsetHeight) * aImg[i].pos.y + rowGap + 'px';
-                    aImg[i].style.left = (colGap + aImg[0].offsetWidth) * aImg[i].pos.x + colGap + 'px';
+                    for (let i = 0; i < num; i++) {
+                        Position(i);
+                        oSpan = aImg[i].getElementsByTagName('span')[0];
+                        oSpan.style.opacity = '0';
+                    }
+                    bFlag = true;
                 }
             }
+        }
+        function Position(i){
+            aImg[i].style.transform = 'rotate('+Math.floor(Math.random()*40-20) +'deg)';
+            aImg[i].style.top = (rowGap + aImg[0].offsetHeight) * aImg[i].pos.y + rowGap + 'px';
+            aImg[i].style.left = (colGap + aImg[0].offsetWidth) * aImg[i].pos.x + colGap + 'px';
         }
     }
 </script>
