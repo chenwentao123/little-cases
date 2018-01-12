@@ -32,20 +32,48 @@
             display:block;
             transition: all 1s ease;
         }
+        #prev,#next{
+            width: 60px;
+            height: 60px;
+            background: #ffffff no-repeat center;
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            cursor: pointer;
+            display: none;
+        }
+        #prev{
+            background-image:url(img/prev.png);
+            left: 0;
+            border-radius: 0 8px 8px 0;
+        }
+        #next{
+            background-image:url(img/next.png);
+            right: 0;
+            border-radius: 8px 0 0 8px;
+        }
     </style>
 </head>
 <body>
     <div id="container"></div>
+    <div id="prev"></div>
+    <div id="next"></div>
 
 <script>
-    var oContainer = document.getElementById('container');
-    var aImg = null;
+    let oContainer = document.getElementById('container');
+    let aImg = null;
     const row = 4,col =6,num = row * col;
-    var count = 0;
-    let BIG_WIDTH = 750;
-    let BIG_HEIGHT = 500;
-    let THUMB_WIDTH = 125,
+    let oPrev = document.getElementById('prev');
+    let oNext = document.getElementById('next');
+    let count = 0;
+    let BIG_WIDTH = 750,
+        BIG_HEIGHT = 500,
+        THUMB_WIDTH = 125,
         THUMB_HEIGHT = 125;
+    let nowIndex = 0;
+
+
+
     for(let i=0;i<num;i++){
         let oThumbsImg = new Image();
         oThumbsImg.onload = function () {
@@ -85,6 +113,7 @@
             }
         }
 
+
         aImg = oContainer.getElementsByTagName('div');
         let colGap = (oContainer.offsetWidth - aImg[0].offsetWidth * col) / (col + 1);
         let rowGap = (oContainer.offsetHeight - aImg[0].offsetHeight * row) / (row + 1);
@@ -120,14 +149,19 @@
                         oSpan.style.backgroundImage = 'url(img/' + imgUrl + '.jpg)';
                         oSpan.style.backgroundPosition = -THUMB_WIDTH * aImg[i].pos.x + 'px ' + (-THUMB_HEIGHT * aImg[i].pos.y) + 'px';
                         oSpan.style.backgroundSize = '750px 500px';
+                        oSpan.style.transitionDelay = '0ms';
+                        nowIndex = imgUrl;
                     }
+                    oPrev.style.display = oNext.style.display = 'block';
                     bFlag = false;
                 }else{
                     for (let i = 0; i < num; i++) {
                         Position(i);
                         oSpan = aImg[i].getElementsByTagName('span')[0];
                         oSpan.style.opacity = '0';
+                        oSpan.style.transitionDelay = '0ms';
                     }
+                    oPrev.style.display = oNext.style.display = 'none';
                     bFlag = true;
                 }
             }
@@ -137,7 +171,32 @@
             aImg[i].style.top = (rowGap + aImg[0].offsetHeight) * aImg[i].pos.y + rowGap + 'px';
             aImg[i].style.left = (colGap + aImg[0].offsetWidth) * aImg[i].pos.x + colGap + 'px';
         }
-    }
+    };
+    oPrev.onclick = oNext.onclick = function () {
+        if (this === oPrev) {
+            nowIndex--;
+            if (nowIndex < 1) {
+                nowIndex = num;
+            }
+        } else {
+            nowIndex++;
+            if (nowIndex > num) {
+                nowIndex = 1;
+            }
+        }
+        let arr = []; // 0~23
+        for (let i = 0; i < num; i++) {
+            arr.push(i);
+        }
+        arr.sort(function () {
+            return Math.random() - 0.5;
+        });
+        for (let i = 0; i < arr.length; i++) {
+            let oSpan = aImg[arr[i]].getElementsByTagName('span')[0];
+            oSpan.style.transitionDelay = i * 50 + 'ms';
+            oSpan.style.backgroundImage = 'url(img/' + nowIndex + '.jpg)';
+        }
+    };
 </script>
 </body>
 </html>
