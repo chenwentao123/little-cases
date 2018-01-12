@@ -184,13 +184,13 @@
                 nowIndex = 1;
             }
         }
-//        let arr = [];
-//        for (let i = 0; i < num; i++) {
-//            arr.push(i);
-//        }
-//        arr.sort(function () {
-//            return Math.random() - 0.5;
-//        });
+        let arr = [];
+        for (let i = 0; i < num; i++) {
+            arr.push(i);
+        }
+        arr.sort(function () {
+            return Math.random() - 0.5;
+        });
         for (let i = 0; i < num; i++) {
             let oSpan = aImg[i].getElementsByTagName('span')[0];
             oSpan.style.transitionDelay = i * 50 + 'ms';
