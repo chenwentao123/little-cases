@@ -45,6 +45,10 @@
     var aImg = null;
     const row = 4,col =6,num = row * col;
     var count = 0;
+    let BIG_WIDTH = 750;
+    let BIG_HEIGHT = 500;
+    let THUMB_WIDTH = 125,
+        THUMB_HEIGHT = 125;
     for(let i=0;i<num;i++){
         let oThumbsImg = new Image();
         oThumbsImg.onload = function () {
@@ -65,12 +69,12 @@
         oBigImg.src = 'img/' + (i + 1) + '.jpg';
 
     }
-
+    //图片加载函数
     function loadSuccess(){
         for(let i = 0;i<row;i++){
             for(let j = 0;j<col;j++){
                 let oDiv = document.createElement('div');
-                oDiv.style.backgroundImage = 'url(img/'+(i * row + j +1)+'.jpg)';
+                oDiv.style.backgroundImage = 'url(img/'+(i * col + j +1)+'.jpg)';
                 oDiv.style.backgroundSize = '125px 125px';
                 oDiv.style.backgroundRepeat = 'no-repeat';
                 oDiv.className = 'img';
@@ -90,19 +94,45 @@
 
         for(let i = 0;i<num;i++){
             aImg[i].style.transform = 'rotate('+Math.floor(Math.random()*40-20) +'deg)';
-            aImg[i].style.transitionDelay = (num - i) * 100 + 'ms';
+            aImg[i].style.transitionDelay = (num - i) * 100 + 'ms';//延时效果
             aImg[i].style.top = (rowGap + aImg[0].offsetHeight) * aImg[i].pos.y + rowGap + 'px';
             aImg[i].style.left = (colGap + aImg[0].offsetWidth) * aImg[i].pos.x + colGap + 'px';
 
-            let bFlag = true;
+        }
 
-            oContainer.onclick = function(e){
-                if(e.currentTarget != e.target){
-                    if(bFlag){
+        let bigColGap = (oContainer.offsetWidth - BIG_WIDTH) / 2,
+            bigRowGap = (oContainer.offsetHeight - BIG_HEIGHT) / 2;
+        let bFlag = true;
 
-                    }else{
+        oContainer.onclick = function(e){
+            console.log(e.target);
+            console.log(this);
+            if(e.currentTarget != e.target){
+                if(bFlag){
+                    for (let i = 0; i < num; i++) {
+                        aImg[i].style.transitionDelay = '0ms';
+                        aImg[i].style.borderWidth = '1px';
+                        aImg[i].style.top = bigRowGap + THUMB_HEIGHT * aImg[i].pos.y + 'px';
+                        aImg[i].style.left = bigColGap + THUMB_WIDTH * aImg[i].pos.x + 'px';
+                        aImg[i].style.transform = 'rotate(0deg)';
 
+                        let oSpan = aImg[i].getElementsByTagName('span')[0];
+                        oSpan.style.opacity = 1;
+                        let imgUrl;
+                        if (e.target.tagName == 'DIV') {
+                            imgUrl = e.target.index;
+                        } else { // span
+                            imgUrl = e.target.parentNode.index;
+                        }
+                        oSpan.style.backgroundImage = 'url(img/' + imgUrl + '.jpg)';
+                        oSpan.style.backgroundPosition = -THUMB_WIDTH * aImg[i].pos.x + 'px ' + (-THUMB_HEIGHT * aImg[i].pos.y) + 'px';
                     }
+                    bFlag = false;
+                }else{
+                    aImg[i].style.transform = 'rotate('+Math.floor(Math.random()*40-20) +'deg)';
+                    aImg[i].style.transitionDelay = (num - i) * 100 + 'ms';//延时效果
+                    aImg[i].style.top = (rowGap + aImg[0].offsetHeight) * aImg[i].pos.y + rowGap + 'px';
+                    aImg[i].style.left = (colGap + aImg[0].offsetWidth) * aImg[i].pos.x + colGap + 'px';
                 }
             }
         }
