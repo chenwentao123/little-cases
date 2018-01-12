@@ -120,7 +120,7 @@
 
 
         for(let i = 0;i<num;i++){
-            aImg[i].style.transitionDelay = (num - i) * 100 + 'ms';//延时效果
+            aImg[i].style.transitionDelay = (num - i) * 100 + 'ms';
             Position(i);
         }
 
@@ -184,15 +184,15 @@
                 nowIndex = 1;
             }
         }
-        let arr = []; // 0~23
+//        let arr = [];
+//        for (let i = 0; i < num; i++) {
+//            arr.push(i);
+//        }
+//        arr.sort(function () {
+//            return Math.random() - 0.5;
+//        });
         for (let i = 0; i < num; i++) {
-            arr.push(i);
-        }
-        arr.sort(function () {
-            return Math.random() - 0.5;
-        });
-        for (let i = 0; i < arr.length; i++) {
-            let oSpan = aImg[arr[i]].getElementsByTagName('span')[0];
+            let oSpan = aImg[i].getElementsByTagName('span')[0];
             oSpan.style.transitionDelay = i * 50 + 'ms';
             oSpan.style.backgroundImage = 'url(img/' + nowIndex + '.jpg)';
         }
