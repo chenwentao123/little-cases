@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆形滚动条</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+        }
+        #svg{
+            background:#fff;
+        }
+        #sec{
+            stroke-dashoffset:0;
+            stroke-dasharray:628;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <svg id="svg" width="400" height="400">
+            <circle cx="120" cy="120" r="100" stroke="#43aefa" stroke-width="20" fill="#fff"/>
+            <circle id="sec" cx="120" cy="120" r="100" stroke="#f4f1f1" stroke-width="20" fill="#fff"/>
+        </svg>
+        <div id="time">10</div>
+    </div>
+
+    <script>
+        let oSec = document.querySelector('#sec');
+        let oTime = document.getElementById('time');
+        let t=10;
+        setInterval(function(){
+
+        },1000);
+    </script>
+</body>
+</html>

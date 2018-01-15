@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>画图板</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+        }
+        #cvs{
+            background:#00A5FF;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="cvs" width="1000" height="1000"></canvas>
+
+    <script>
+        let oCvs = document.querySelector('#cvs');
+        let context = oCvs.getContext('2d');
+         context.strokeStyle = '#fff';
+         context.lineWidth = 10;
+
+        oCvs.onmousedown = function(e){
+            context.beginPath();
+            context.moveTo(e.clientX,e.clientY);
+            oCvs.onmousemove = function(e){
+                context.lineTo(e.clientX, e.clientY);
+                context.stroke();
+            };
+            oCvs.onmouseup = function(){
+                oCvs.onmousemove = null;
+            };
+        };
+    </script>
+</body>
+</html>
