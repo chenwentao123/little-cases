@@ -4,19 +4,35 @@
     <meta charset="UTF-8">
     <title>圆形滚动条</title>
     <style>
-        body{
-            margin:0;
-            padding:0;
+        body {
+            margin: 0;
         }
-        #svg{
-            background:#fff;
+
+        #svg {
+            background: #fff;
         }
-        #sec{
-            stroke-dashoffset:0;
-            stroke-dasharray:628;
-            transition:stroke-dashoffset 1s linear;
-            transform:rotate(-90deg);
-            transform:
+
+        #sec {
+            stroke-dashoffset: 0;
+            stroke-dasharray: 628;
+            transition: stroke-dashoffset 1s linear;
+            transform: rotate(-90deg);
+            transform-origin: center;
+        }
+
+        #container {
+            position: relative;
+        }
+
+        #time {
+            font-size: 80px;
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            top: 80px;
+            left: 80px;
         }
     </style>
 </head>
@@ -24,7 +40,7 @@
     <div id="container">
         <svg id="svg" width="400" height="400">
             <circle cx="120" cy="120" r="100" stroke="#43aefa" stroke-width="20" fill="#fff"/>
-            <circle id="sec" cx="120" cy="120" r="100" stroke="#f4f1f1" stroke-width="20" fill="#fff"/>
+            <circle id="sec" cx="120" cy="120" r="100" stroke="#f4f1f1" stroke-width="20" fill="transparent"/>
         </svg>
         <div id="time">10</div>
     </div>
@@ -37,7 +53,7 @@
             oTime.innerHTML = t;
             t--;
             if(t < 0){
-                clear(timer);
+                clearInterval(timer);
             }else{
                 oSec.style.strokeDashoffset = 628/10*t -628;
             }
