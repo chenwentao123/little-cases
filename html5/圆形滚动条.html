@@ -14,7 +14,9 @@
         #sec{
             stroke-dashoffset:0;
             stroke-dasharray:628;
-
+            transition:stroke-dashoffset 1s linear;
+            transform:rotate(-90deg);
+            transform:
         }
     </style>
 </head>
@@ -31,8 +33,14 @@
         let oSec = document.querySelector('#sec');
         let oTime = document.getElementById('time');
         let t=10;
-        setInterval(function(){
-
+        let timer = setInterval(function(){
+            oTime.innerHTML = t;
+            t--;
+            if(t < 0){
+                clear(timer);
+            }else{
+                oSec.style.strokeDashoffset = 628/10*t -628;
+            }
         },1000);
     </script>
 </body>
