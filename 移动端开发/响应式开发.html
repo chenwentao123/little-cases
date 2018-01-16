@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>响应式开发</title>
+    <style>
+        *{
+            margin:0;
+            padding:0
+        }
+        ul{
+            list-style:none;
+        }
+        img{
+            display:block;
+        }
+        #head,#nav,#foot{
+            width:1366px;
+            height:100px;
+            border-radius:20px;
+            background:#6D84B4;
+            color:#fff;
+            margin:20px auto;
+            text-align:center;
+            line-height:100px;
+        }
+        #image{
+            width:1366px;
+            height:768px;
+            margin:0 auto;
+            background:url(01.jpg) no-repeat center/cover;
+        }
+        #text{
+            width:1366px;
+            margin:0 auto;
+        }
+        #text div{
+            width:673px;
+            border-radius: 20px;
+            height:400px;
+            display:table;
+        }
+        #text div p{
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        #text #div1{
+            float:left;
+            background:#00A5FF;
+        }
+        #text #div2{
+            float:right;
+            background:#CDE074;
+        }
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        @media(max-width:1392px){
+            #head,#nav,#foot{
+                width:100%;
+            }
+            #text{
+                width:100%;
+            }
+            #text #div1,#text #div2{
+                width:49%;
+            }
+            #image{
+                width: 100%;
+                height: 0;
+                padding-top: 56.25%
+            }
+            /*#image{*/
+                /*width:100%;*/
+            /*}*/
+            /*#image img{*/
+                /*width:100%;*/
+            /*}*/
+        }
+        @media(max-width:920px){
+            #text{
+                width:100%;
+            }
+            #text #div1,#text #div2{
+                width:100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="head">
+        <h3>头部</h3>
+    </div>
+    <div id="nav">
+        <h3>导航</h3>
+    </div>
+    <div id="image">
+        <!--<img src="01.jpg">-->
+    </div>
+    <div id="text" class="clearfix">
+        <div id="div1">
+            <p>鬼谷子，这位神龙见首不见尾的旷世奇才，虽一生出世，但是却教出了四位深刻影响中国历史的英雄人物：张仪、苏秦、孙膑、庞涓。如果按照其时的活动和后人的分法，则前两者属于纵横家，后两者属于兵家。 今天且谈后两者的兵术，以及他们的恩怨情仇。
+
+                以现在的眼光来看，战国时代的故事发展真像一出长达250余年的舞台剧，其中人物恩怨情仇，故事情节波谲云诡，看完之后当真令人拍案、令人扼腕、令人痴迷。
+
+                作者：KafkaG
+                链接：https://www.jianshu.com/p/55a7efe1b09f
+                來源：简书
+                著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+        </div>
+        <div id="div2">
+            <p>孙膑，智谋了得，善于布阵，提出“因势”、“造势”的军事思想，并著有《孙膑兵法》，对后世的兵法谋略发展做出了很大的贡献，位列武成王苗六十四将左列第二。初仕于魏，后遭陷害逃至齐国，带领齐军大破于桂陵和马陵大破魏军，奠定了齐国的霸业。
+
+                庞涓，魏国名将，治军严谨，用兵如神，手下军队使命必达，命令传递没有阻塞，带领他们大溃赵兵，打败秦军。后期更是率领军队击退了秦、赵、齐三国的联合兵，致使三国与魏国签订结盟条约，让魏国成为唯一一个战国时期同时打败秦、赵、齐的国家。因此，单看军事才能，庞涓完全可以媲美孙膑。但是，了解历史的人都知道，庞涓最后被孙膑逼死，末了留下了一句：“遂使竖子成名”。
+
+                作者：KafkaG
+                链接：https://www.jianshu.com/p/55a7efe1b09f
+                來源：简书
+                著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+        </div>
+    </div>
+    <div id="foot">
+        <h3>尾部</h3>
+    </div>
+</body>
+</html>
