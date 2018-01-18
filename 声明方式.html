@@ -6,6 +6,13 @@
 </head>
 <body>
 
+    <ul id="ul1">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+    </ul>
 
     <script>
 //        var a = 5;
@@ -72,6 +79,65 @@
 //            let a = 6;
 //        }
 //        foo();
+
+//            let a = 5;
+//            let a = 6;
+//            console.log(a);
+
+//        let a = 5;
+//        function foo(){
+//            console.log(a);
+//            let a = 6;
+//        }
+//        foo();
+
+//        for(let i=0;i<3;i++){
+//
+//        }
+//        console.log(i);
+
+        //方法一 给每个li自定义属性
+//        var oUl = document.querySelector('#ul1');
+//        var aLi = oUl.querySelectorAll('#ul1 li');
+//        for(var i=0;i<aLi.length;i++){
+//            aLi[i].index = i;
+//            aLi[i].onclick = function(){
+//                console.log(this.index);
+//            }
+//        }
+
+
+        //方法二 闭包
+//        var oUl = document.querySelector('#ul1');
+//        var aLi = oUl.querySelectorAll('#ul1 li');
+//        for(var i=0;i<aLi.length;i++){
+//            (function(index){
+//                aLi[i].onclick = function(){
+//                    console.log(index);
+//                }
+//            })(i);
+//        }
+
+
+        //方法三 let
+//        var oUl = document.querySelector('#ul1');
+//        var aLi = oUl.querySelectorAll('#ul1 li');
+//        for(let i=0;i<aLi.length;i++){
+//            aLi[i].index = i;
+//            aLi[i].onclick = function(){
+//                console.log(this.index);
+//            }
+//        }
+
+
+
+        let arr = [];
+        for(let i=0;i<5;i++){
+            arr[i] = function(){
+                console.log(i);
+            }
+        }
+        arr[3]();
 
     </script>
 </body>
