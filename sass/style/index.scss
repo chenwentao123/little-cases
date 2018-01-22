@@ -1,1 +1,13 @@
-kdfasoiheinndesdahfuehwininciegeaijvrhgjlkr
+
+$color:#f00;
+$w:300px;
+#div1{
+  background:$color;
+  color:$color;
+  .aa{
+    width:$w;
+    .bb{
+      height:$w;
+    }
+  }
+}

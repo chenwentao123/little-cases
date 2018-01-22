@@ -1,7 +1,9 @@
 #div1 {
   background: #f00;
-  width: 200px;
-  color: #f00; 
-}
+  color: #f00; }
+  #div1 .aa {
+    width: 300px; }
+    #div1 .aa .bb {
+      height: 300px; }
 
 /*# sourceMappingURL=index.css.map */
