@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0f467d1b-a7d2-4121-87a9-b1cd04657127" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ES6/声明方式.html" afterPath="$PROJECT_DIR$/ES6/声明方式.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -421,14 +420,7 @@
       <workItem from="1516591077041" duration="566000" />
       <workItem from="1516591662588" duration="23000" />
       <workItem from="1516592211861" duration="672000" />
-      <workItem from="1516629426962" duration="267000" />
-    </task>
-    <task id="LOCAL-00047" summary="一些小例子">
-      <created>1513264101890</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1513264101890</updated>
+      <workItem from="1516629426962" duration="405000" />
     </task>
     <task id="LOCAL-00048" summary="一些小例子">
       <created>1513335281665</created>
@@ -766,11 +758,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516629492407</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="一些小例子">
+      <created>1516629701455</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1516629701455</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164214000" />
+    <option name="totallyTimeSpent" value="164352000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1932" height="1092" extended-state="0" />
