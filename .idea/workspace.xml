@@ -77,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/ES6/声明方式.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="133">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -421,14 +421,7 @@
       <workItem from="1516591077041" duration="566000" />
       <workItem from="1516591662588" duration="23000" />
       <workItem from="1516592211861" duration="672000" />
-      <workItem from="1516629426962" duration="516000" />
-    </task>
-    <task id="LOCAL-00051" summary="一些小例子">
-      <created>1513435555222</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1513435555222</updated>
+      <workItem from="1516629426962" duration="541000" />
     </task>
     <task id="LOCAL-00052" summary="一些小例子">
       <created>1513524229658</created>
@@ -766,11 +759,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516629920149</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="一些小例子">
+      <created>1516629949987</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1516629949987</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164463000" />
+    <option name="totallyTimeSpent" value="164488000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1932" height="1092" extended-state="0" />
@@ -1093,7 +1093,7 @@
     <entry file="file://$PROJECT_DIR$/ES6/声明方式.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
           <folding />
         </state>
       </provider>
