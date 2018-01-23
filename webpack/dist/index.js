@@ -68,7 +68,7 @@
 /***/ (function(module, exports) {
 
 let oDiv1 = document.querySelector('#div1');
-oDiv1.innerHTML = 'Hello World';
+oDiv1.innerHTML = 'Hello My World';
 
 /***/ })
 /******/ ]);
