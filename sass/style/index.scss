@@ -1,13 +1,65 @@
-
-$color:#f00;
-$w:300px;
+$color:#fff;
+$w:200px;
 #div1{
-  background:$color;
-  color:$color;
-  .aa{
-    width:$w;
-    .bb{
-      height:$w;
+    background:$color;
+    color:$color;
+    .aa{
+        width:$w;
+        .bb{
+            height:$w;
+        }
+        &:hover{
+            background:$color;
+        }
+        &-test{
+            width:$w;
+            &-test2{
+                height:$w;
+            }
+        }
     }
-  }
+    .cc{
+        width:200px;
+    }
+}
+#div2{
+    background{
+        color:$color;
+        image:url(xx.jpg);
+    }
+    border{
+        bottom: 10px;
+        color:red;
+    }
+}
+
+$width:200px;
+$wd:width;
+#div3{
+    #{$wd}:$width;
+}
+
+@mixin xx($w:200px,$h:100px){
+    width:$w;
+    height:$h;
+    background:#fff;
+}
+
+#div4{
+    @include xx(100px,300px);
+    font-size:20px;
+}
+#div5{
+    @include xx($h:500px,$w:600px);
+    background:red;
+}
+#div6{
+    @include xx(300px,300px);
+    .aa{
+        width:200px;
+    }
+}
+#div7{
+    @extend #div6;
+    font-size:14px;
 }
