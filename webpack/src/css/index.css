@@ -1,0 +1,10 @@
+#div2{
+    width:200px;
+    height:200px;
+    background:#f00;
+}
+#div3{
+    width:800px;
+    height:800px;
+    background:url(../images/cy-img.png) no-repeat;
+}
