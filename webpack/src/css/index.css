@@ -8,3 +8,7 @@
     height:800px;
     background:url(../images/cy-img.png) no-repeat;
 }
+#div4{
+    display:flex;
+    transform: rotate(30deg);
+}
