@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for=" (vul,index) in schools ">{{vul}} -- {{index+1}}</li>
+        </ul>
+
+        <ul>
+            <li v-for="(val,key,index) in obj">{{key}} -- {{val}} -- {{index}}</li>
+        </ul>
+
+        <ul>
+            <li v-for="(val,key) in arr">{{val}} -- {{key}}</li>
+        </ul>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                schools:['农大','哈金融','黑大'],
+                obj:{
+                    name:'chenwentao',
+                    age:'23',
+                    school:'nongda'
+                },
+                arr:[{
+                    name:'zs',
+                    age:'20',
+                    school:'nongda'
+                },{
+                    name:'ls',
+                    age:'30',
+                    school:'hajinrong'
+                },{
+                    name:'ww',
+                    age:'40',
+                    school:'heida'
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
