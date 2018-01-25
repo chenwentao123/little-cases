@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <span v-if="isLogin">已经登陆</span>
+        <span v-else>请登陆</span>
+
+        <br>
+
+        <span v-if="letter == 'A'">A</span>
+        <span v-else-if="letter == 'B'">B</span>
+        <span v-else>C</span>
+
+        <br>
+
+        <span v-show="isShow">show</span>
+        <span v-show="!isShow">not show</span>
+    </div>
+    
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                isLogin:true,
+                letter:'A',
+                isShow:true
+            }
+        });
+    </script>
+</body>
+</html>
