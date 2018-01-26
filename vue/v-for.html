@@ -17,7 +17,7 @@
         </ul>
 
         <ul>
-            <li v-for="(val,key) in arr">{{val}} -- {{key}}</li>
+            <li v-for="(val,key) in arrSort">{{val.name}} -- {{val.age}} --{{val.school}}</li>
         </ul>
     </div>
 
@@ -45,6 +45,13 @@
                     age:'40',
                     school:'heida'
                 }]
+            },
+            computed:{
+                arrSort(){
+                    return this.arr.sort(function(a,b){
+                        return a.age - b.age;
+                    })
+                }
             }
         });
     </script>
