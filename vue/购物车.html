@@ -48,7 +48,7 @@
     <div id="app">
         <h1 v-text="msg"></h1>
         <ul>
-            <li v-for="val in arr" @click="changeColor" :class="{red:bgColor,green:!bgColor}">
+            <li v-for="val in arr" @click="changeColor" :class="{red:val.active,green:!val.active}">
                 {{val.name}} 
                 <span>{{val.price}}</span>
             </li>
@@ -64,17 +64,16 @@
             data:{
                 msg:'购物车',
                 arr:[
-                    {name:'雷姆',price:'15780$'},
-                    {name:'真白',price:'16000$'},
-                    {name:'三夜',price:'12000$'},
-                    {name:'狂三',price:'14000$'},
-                    {name:'亚里亚',price:'16700$'},
-                ],
-                bgColor:false
+                    {name:'雷姆',price:'15780$',active:false},
+                    {name:'真白',price:'16000$',active:false},
+                    {name:'三夜',price:'12000$',active:false},
+                    {name:'狂三',price:'14000$',active:false},
+                    {name:'亚里亚',price:'16700$',active:false},
+                ]
             },
             methods:{
                 changeColor(){
-                    this.bgColor = !this.bgColor;
+                    this.active = !this.active;
                 }
             }
         });
