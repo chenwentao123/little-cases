@@ -81,7 +81,7 @@
                     let total = 0;
                     this.arr.forEach(function(val,index){
                         if(val.active){
-                            total += val.price;
+                            total += parseInt(val.price);
                         }
                     });
                     vm.sum = total;
