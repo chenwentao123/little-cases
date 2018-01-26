@@ -48,7 +48,7 @@
     <div id="app">
         <h1 v-text="msg"></h1>
         <ul>
-            <li v-for="val in arr" @click="changeColor" :class="{red:val.active,green:!val.active}">
+            <li v-for="(val,index) in arr" @click="changeColor(index)" :class="{red:val.active,green:!val.active}">
                 {{val.name}} 
                 <span>{{val.price}}</span>
             </li>
@@ -72,8 +72,8 @@
                 ]
             },
             methods:{
-                changeColor(){
-                    this.active = !this.active;
+                changeColor(index){
+                    this.arr[index].active = !this.arr[index].active;
                 }
             }
         });
