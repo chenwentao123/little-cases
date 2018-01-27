@@ -75,8 +75,9 @@
             methods:{
                 changeColor(o){
                     o.active = !o.active;
-                    this.add();
                 },
+            },
+            computed:{
                 add(){
                     let total = 0;
                     this.arr.forEach(function(val,index){
