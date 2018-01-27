@@ -61,8 +61,8 @@
     <div id="app">
         <h1 v-text="msg"></h1>
         <hr/>
-        <input class="key-words" type="text" placeholder="请输入关键字">
-        <button>搜索</button>
+        <input @keyup.enter="search" class="key-words" type="text" placeholder="请输入关键字" v-model="keyWords">
+        <button @click="search">搜索</button>
         <ul>
             <li v-for="(val,index) in arr" @click="changeColor(val)" :class="{red:val.active,green:!val.active}">
                 <input @click.stop type="checkbox" v-model="checkList" :value="index">
@@ -76,12 +76,12 @@
         total:        <span class='num'>{{add}}$</span>
         <div class="product-add">
             <label for="product-name">商品名称</label>
-            <input type="text" id="product-name" placeholder="请输入商品名称">
+            <input type="text" id="product-name" placeholder="请输入商品名称" v-model="productName">
             <br/>
             <label for="product-price">商品价格</label>
-            <input type="text" id="product-price"  placeholder="请输入商品价格">
+            <input type="text" id="product-price"  placeholder="请输入商品价格" v-model.number="productPrice">
             <br/>
-            <input type="button" value="增加">
+            <input @click="addProduct" type="button" value="增加">
         </div>
     </div>
 
@@ -99,7 +99,10 @@
                     {name:'亚里亚',price:'16700$',active:false},
                 ],
                 sum:0,
-                checkList:[]
+                checkList:[],
+                productName:'',
+                productPrice:'',
+                keyWords:[]
             },
             methods:{
                 changeColor(o){
@@ -110,12 +113,26 @@
                 },
                 delChecked(){
                     this.arr = this.arr.filter(function(item,index){
-                        console.log(index);
                         if(!vm.checkList.includes(index)){
                             return item;
                         }
                     });
                     this.checkList=[];
+                },
+                addProduct(){
+                    this.arr.push({
+                        name:this.productName,
+                        price:this.productPrice,
+                        active:false
+                    });
+                    this.productName = this.productPrice = '';
+                },
+                search(){
+                    this.arr = this.arr.filter(function(item){
+                        if(item.name.includes(vm.keyWords) || item.price.toString().includes(vm.keyWords)){
+                            return item;
+                        }
+                    });
                 }
             },
             computed:{
