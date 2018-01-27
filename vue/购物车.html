@@ -110,7 +110,8 @@
                 },
                 delChecked(){
                     this.arr = this.arr.filter(function(item,index){
-                        if(!this.checkList.includes(index)){
+                        console.log(index);
+                        if(!vm.checkList.includes(index)){
                             return item;
                         }
                     });
