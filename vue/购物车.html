@@ -65,14 +65,14 @@
         <button>搜索</button>
         <ul>
             <li v-for="(val,index) in arr" @click="changeColor(val)" :class="{red:val.active,green:!val.active}">
-                <input @click.stop type="checkbox">
+                <input @click.stop type="checkbox" v-model="checkList" :value="index">
                 {{val.name}} 
                 <span>{{val.price}}</span>
                 <button @click.stop="delProduct(index)" class="del">X</button>
             </li>
         </ul>
         <hr/>
-        <input type="button" value="全部删除">
+        <input @click="delChecked" type="button" value="删除选中">
         total:        <span class='num'>{{add}}$</span>
         <div class="product-add">
             <label for="product-name">商品名称</label>
@@ -98,7 +98,8 @@
                     {name:'狂三',price:'14000$',active:false},
                     {name:'亚里亚',price:'16700$',active:false},
                 ],
-                sum:0
+                sum:0,
+                checkList:[]
             },
             methods:{
                 changeColor(o){
@@ -106,6 +107,14 @@
                 },
                 delProduct(index){
                     this.arr.splice(index,1);
+                },
+                delChecked(){
+                    this.arr = this.arr.filter(function(item,index){
+                        if(!this.checkList.includes(index)){
+                            return item;
+                        }
+                    });
+                    this.checkList=[];
                 }
             },
             computed:{
