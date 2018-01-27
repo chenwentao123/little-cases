@@ -52,6 +52,9 @@
         ul li .del{
             float:right;
         }
+        #app .product-add{
+            margin-top:5px;
+        }
     </style>
 </head>
 <body>
@@ -65,12 +68,13 @@
                 <input @click.stop type="checkbox">
                 {{val.name}} 
                 <span>{{val.price}}</span>
-                <button @click.stop class="del">X</button>
+                <button @click.stop="delProduct(index)" class="del">X</button>
             </li>
         </ul>
         <hr/>
+        <input type="button" value="全部删除">
         total:        <span class='num'>{{add}}$</span>
-        <div>
+        <div class="product-add">
             <label for="product-name">商品名称</label>
             <input type="text" id="product-name" placeholder="请输入商品名称">
             <br/>
@@ -100,6 +104,9 @@
                 changeColor(o){
                     o.active = !o.active;
                 },
+                delProduct(index){
+                    this.arr.splice(index,1);
+                }
             },
             computed:{
                 add(){
