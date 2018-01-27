@@ -29,10 +29,11 @@
             margin-bottom:10px;
             line-height: 30px;
             padding:10px;
+            text-align: center;
         }
-        ul li span{
+        /* ul li span{
             float:right;
-        }
+        } */
         #app .num{
             float:right;
         }
@@ -42,19 +43,42 @@
         .red{
             background:#f00;
         }
+        #app .key-words{
+            margin-bottom: 5px;
+        }
+        ul li input{
+            float:left;
+        }
+        ul li .del{
+            float:right;
+        }
     </style>
 </head>
 <body>
     <div id="app">
         <h1 v-text="msg"></h1>
+        <hr/>
+        <input class="key-words" type="text" placeholder="请输入关键字">
+        <button>搜索</button>
         <ul>
             <li v-for="(val,index) in arr" @click="changeColor(val)" :class="{red:val.active,green:!val.active}">
+                <input @click.stop type="checkbox">
                 {{val.name}} 
                 <span>{{val.price}}</span>
+                <button @click.stop class="del">X</button>
             </li>
         </ul>
         <hr/>
-        total:        <span class='num'>{{sum}}$</span>
+        total:        <span class='num'>{{add}}$</span>
+        <div>
+            <label for="product-name">商品名称</label>
+            <input type="text" id="product-name" placeholder="请输入商品名称">
+            <br/>
+            <label for="product-price">商品价格</label>
+            <input type="text" id="product-price"  placeholder="请输入商品价格">
+            <br/>
+            <input type="button" value="增加">
+        </div>
     </div>
 
     <script src="vue.js"></script>
@@ -85,7 +109,7 @@
                             total += parseInt(val.price);
                         }
                     });
-                    vm.sum = total;
+                    return total;
                 }
             }
         });
