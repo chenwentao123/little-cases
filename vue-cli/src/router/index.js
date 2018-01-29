@@ -5,10 +5,12 @@ import Test from '@/components/test'
 import Test1 from '@/components/test1'
 import Test2 from '@/components/test2'
 import TestUrl from '@/components/TestUrl'
+import Error from '@/components/Error'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -27,7 +29,13 @@ export default new Router({
           name: 'test2',
           component: Test2
         }
-      ]
+      ],
+      beforeEnter: (to, from, next) => {
+        console.log(to)
+        console.log(from)
+        // next(false)
+        next()
+      }
     }, {
       path: '/testUrl/:userId(\\d+)/:username',
       name: 'TestUrl',
@@ -39,6 +47,9 @@ export default new Router({
       path: '/test/test1',
       componenet: Test1,
       alias: '/abc'
+    }, {
+      path: '*',
+      component: Error
     }
   ]
 })
