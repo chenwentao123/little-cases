@@ -2,6 +2,7 @@
     <div>
         <h1 class="hw">Hello World</h1>
         <h1>{{msg}}</h1>
+        <router-view></router-view>
     </div>
 </template>
 
