@@ -4,7 +4,7 @@
           <span slot="title">Book</span>
       </common-header>
       <div class="container">
-          Movie
+          Book
       </div>
       <common-footer isColor="rgb(121, 85, 72)"></common-footer>
   </div>
