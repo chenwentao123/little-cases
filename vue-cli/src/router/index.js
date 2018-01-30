@@ -6,6 +6,7 @@ import Test1 from '@/components/test1'
 import Test2 from '@/components/test2'
 import TestUrl from '@/components/TestUrl'
 import Error from '@/components/Error'
+import Counte from '@/components/Counte'
 
 Vue.use(Router)
 
@@ -50,6 +51,9 @@ export default new Router({
     }, {
       path: '*',
       component: Error
+    }, {
+      path: '/counte',
+      component: Counte
     }
   ]
 })
