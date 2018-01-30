@@ -3,7 +3,9 @@
       <common-header isColor="rgb(0, 150, 136)">
           <span slot="title">Book</span>
       </common-header>
-      <h1>Book</h1>
+      <div class="container">
+          Movie
+      </div>
       <common-footer isColor="rgb(0, 150, 136)"></common-footer>
   </div>
 </template>
