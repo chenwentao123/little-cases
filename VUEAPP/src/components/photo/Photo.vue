@@ -1,7 +1,7 @@
 <template>
     <div>
       <common-header isColor="rgb(63, 81, 181)">
-          <span slot="title">Book</span>
+          <span slot="title">Photo</span>
       </common-header>
       <div class="container">
           Photo

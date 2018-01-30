@@ -1,10 +1,10 @@
 <template>
     <div>
       <common-header isColor="rgb(0, 150, 136)">
-          <span slot="title">Book</span>
+          <span slot="title">Music</span>
       </common-header>
       <div class="container">
-          Movie
+          Music
       </div>
       <common-footer isColor="rgb(0, 150, 136)"></common-footer>
   </div>
