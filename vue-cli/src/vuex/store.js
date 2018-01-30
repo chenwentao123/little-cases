@@ -3,19 +3,36 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-  count: 1
+  count: 0
 }
 
 const mutations = {
-  add (state) {
-    state.count++
+  add (state, num) {
+    state.count += num
   },
-  sub (state) {
-    state.count--
+  sub (state, num) {
+    state.count -= num
+  }
+}
+
+// const getters = {
+//   count (state) {
+//     state.count += 100
+//     return state.count
+//   }
+// }
+
+const actions = {
+  addAction ({commit}) {
+    commit('add', 10)
+  },
+  reduceAction ({commit}) {
+    commit('sub', 10)
   }
 }
 
 export default new Vuex.Store({
   state,
-  mutations
+  mutations,
+  actions
 })
