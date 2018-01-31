@@ -9,7 +9,7 @@
                   <ul>
                       <li class="name">{{movie.nm}}</li>
                       <li>{{movie.ver}}</li>
-                      <li>{{movie.star}}</li>
+                      <li>主演：{{movie.star}}</li>
                       <li>{{movie.showInfo}}</li>
                   </ul>
               </div>
@@ -36,15 +36,16 @@ export default {
   },
   methods: {
         getData(){
-          axios.get(API_PROXY +  `http://m.maoyan.com/movie/list.json?type=hot&offset=${
-            this.movieList.length
-            }&limit=10`)
+          axios.
+          get(API_PROXY +  
+              `http://m.maoyan.com/movie/list.json?type=hot&offset=${
+                this.movieList.length
+              }&limit=10`)
           .then(res => {
             let list = res.data.data.movies;
             if(list.length < 10){
                 this.isEnd = true;
             }
-            console.log(movisList.length);
             this.movieList = this.movieList.concat(list);
             this.isLoading = false;
             })
@@ -67,7 +68,7 @@ export default {
       if (scrollTop + clientHeight == scrollHeight && !this.isEnd) {
             this.isLoading = true;
             setTimeout(() => {
-            this.getMovieData();
+            this.getData();
             }, 1000);
       }
     };
