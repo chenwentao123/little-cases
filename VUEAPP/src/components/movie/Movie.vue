@@ -18,6 +18,7 @@
       <div>
           <img src="../../assets/img/loading.gif" alt="">
       </div>
+      <div></div>
   </div>
 </template>
 
