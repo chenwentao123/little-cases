@@ -15,13 +15,25 @@ export default new Router({
       component: Movie
     },{
       path: '/music',
-      component: Music
+      name: 'Music',
+      component: Music,
+      beforeEnter (to, from, next) {
+        from.name === null ? next('/') : next();
+      }
     },{
       path: '/book',
-      component: Book
+      name: 'Book',      
+      component: Book,
+      beforeEnter (to, from, next) {
+        from.name === null ? next('/') : next();
+      }
     },{
       path: '/photo',
-      component: Photo
+      name: 'Photo',      
+      component: Photo,
+      beforeEnter (to, from, next) {
+        from.name === null ? next('/') : next();
+      }
     }
   ]
 })

@@ -1,6 +1,6 @@
 <template>
-    <div class="header" :style="{backgroundColor:isColor}">
-        <span>首页</span>
+    <div class="header" :style="{backgroundColor:bgColor}">
+        <span @click="$emit('home')">首页</span>
         <h2 class="title">
             <slot name="title">默认值</slot>
         </h2>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-   props: ['isColor']
+   props: ['bgColor']
 }
 </script>
 

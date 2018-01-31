@@ -1,15 +1,15 @@
 <template>
-  <div class="footer" :style="{backgroundColor:isColor}">
-    <div><router-link to="/">电影</router-link></div>
-    <div><router-link to="/music">音乐</router-link></div>
-    <div><router-link to="/book">书籍</router-link></div>
-    <div><router-link to="/photo">图片</router-link></div>
+  <div class="footer" :style="{backgroundColor:bgColor}">
+    <div><router-link to="/" @click.native="$emit('change', 'Movie')">电影</router-link></div>
+    <div><router-link to="/music" @click.native="$emit('change', 'Music')">音乐</router-link></div>
+    <div><router-link to="/book"  @click.native="$emit('change', 'Book')">书籍</router-link></div>
+    <div><router-link to="/photo"  @click.native="$emit('change', 'Photo')">图片</router-link></div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['isColor']
+  props: ['bgColor']
 }
 </script>
 
@@ -29,6 +29,7 @@ export default {
 }
 .footer div a{
   color:#ccc;
+  outline:none;
 }
 .footer div a.router-link-exact-active {
   color:#fff;
