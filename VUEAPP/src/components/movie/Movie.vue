@@ -15,6 +15,9 @@
               </div>
           </li>
       </ul>
+      <div>
+          <img src="../../assets/img/loading.gif" alt="">
+      </div>
   </div>
 </template>
 
@@ -23,21 +26,24 @@ import axios from 'axios'
 export default {
   data () {
       return {
-          movieList:[]
+          movieList:[],
+          isLoading:false,
       }
   },
   methods: {
-      getData(){
-          axios.get(API_PROXY + `http://m.maoyan.com/movie/list.json?type=hot&offset=0&limit=10`)
+        getData(){
+          axios.get(API_PROXY +  `http://m.maoyan.com/movie/list.json?type=hot&offset=${this.movieList.length}&limit=10`)
           .then(res => {
             let list = res.data.data.movies;
             this.movieList = this.movieList.concat(list);
-            console.log(this.movieList);
             })
           .catch(res => {
                 alert('数据获取失败!')
             });
-      }
+        },
+        getDetail(){
+
+        }
   },
   created () {
       this.getData();
@@ -51,13 +57,17 @@ export default {
 }
 .movieList{
     display:flex;
+    padding:0 0.1rem;
+    border-bottom: 0.03rem solid #ccc ;
 }
 .image{
     flex-grow: 1;
     width:0;
 }
 .introduction{
-    flex-grow: 1;
+    flex-grow: 2;
+    width:0;
+    padding:0 0.1rem
 }
 </style>
 
