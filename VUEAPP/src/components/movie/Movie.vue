@@ -21,7 +21,7 @@
       <div class="end" v-show="isEnd">
           <h2>已经到底了</h2>
       </div>
-      <div></div>
+
   </div>
 </template>
 
