@@ -36,9 +36,7 @@ export default {
   },
   methods: {
         getData(){
-          axios.
-          get(API_PROXY +  
-              `http://m.maoyan.com/movie/list.json?type=hot&offset=${
+          axios.get(API_PROXY +  `http://m.maoyan.com/movie/list.json?type=hot&offset=${
                 this.movieList.length
               }&limit=10`)
           .then(res => {
