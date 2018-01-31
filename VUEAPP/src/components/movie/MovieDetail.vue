@@ -43,7 +43,6 @@ export default {
           }.json`)
       .then(res => {
           this.detail = res.data.data.MovieDetailModel;
-          console.log(this.detail);
           this.isLoading = false;
       })
       .catch(res =>{
