@@ -33,7 +33,6 @@
           <img src="../../assets/img/image6gif.gif" alt="">
       </div>
   </div>
-<div></div>
 </template>
 
 <script>
