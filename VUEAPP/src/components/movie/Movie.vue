@@ -16,12 +16,12 @@
           </li>
       </ul>
       <div class="load" v-show="isLoading">
-          <img src="../../assets/img/loading.gif" alt="">
+          <img src="../../assets/img/TIM图片1.gif" alt="">
       </div>
       <div class="end" v-show="isEnd">
           <h2>已经到底了</h2>
+          <img src="../../assets/img/image6gif.gif" alt="">
       </div>
-
   </div>
 </template>
 
@@ -78,7 +78,7 @@ export default {
 <style scoped>
 .container{
     margin-top:1rem;
-    margin-bottom:2rem;
+    margin-bottom:4rem;
 }
 .movieList{
     display:flex;
