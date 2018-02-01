@@ -21,6 +21,7 @@ export default {
     top:0;
     line-height: 1rem;
     color:#fff;
+    z-index:999;
 }
 .header span{
     margin-left:0.1rem;
