@@ -32,7 +32,7 @@ export default {
       this.title = tabName;
       switch (tabName) {
         case 'Movie' :
-          this.isColor = 'rgb(33, 150, 243)';
+          this.isColor = 'rgb(150, 0, 0)';
           break;
         case 'Music' :
           this.isColor = 'rgb(0, 150, 136)';
