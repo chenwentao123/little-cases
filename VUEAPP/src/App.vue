@@ -35,7 +35,7 @@ export default {
           this.isColor = 'rgb(150, 0, 0)';
           break;
         case 'Music' :
-          this.isColor = 'rgb(0, 150, 136)';
+          this.isColor = 'rgb(0, 0, 0)';
           break;  
         case 'Book' :
           this.isColor = 'rgb(121, 85, 72)';

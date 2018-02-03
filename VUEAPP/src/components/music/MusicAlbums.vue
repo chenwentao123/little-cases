@@ -1,5 +1,8 @@
 <template>
-    <aplayer autoplay :music="musicList" v-if="loadSuccess" :showlrc="true" :mutex="true"></aplayer>
+<div>
+    <aplayer :music="musicList" v-if="loadSuccess" :showlrc="true" :mutex="true"></aplayer>
+</div>
+
 </template>
 
 <script>
@@ -16,7 +19,7 @@ export default {
         }
     },
     created () {
-        axios.get('/static/data/musicdata.json')
+        axios.get(`/static/data/musicdata${this.$route.params.musicId}.json`)
         .then(res => {
             res.data.musicData.forEach(element =>{
                 this.musicList.push({
@@ -34,7 +37,11 @@ export default {
 </script>
 
 <style scoped>
+div{
+    background:url(../../assets/img/bg_image.png)
+}
 .aplayer{
+    color:#ccc;
     margin-top: 1rem;
 }
 </style>
