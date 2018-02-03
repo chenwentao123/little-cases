@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
 .my-swipe {
-  height: 200px;
+  height: 606px;
   color: #fff;
   font-size: 30px;
   text-align: center;
@@ -27,17 +27,17 @@ export default {
 }
 
 .slide1 {
-  background-image: url('https://img3.doubanio.com/lpic/s27102925.jpg');
+  background: url(../../assets/img/1.jpg) center/cover;
   color: #fff;
 }
 
 .slide2 {
-  background-image: url('https://img3.doubanio.com/lpic/s6989253.jpg');
+  background: url(../../assets/img/2.jpg) center/cover;
   color: #000;
 }
 
 .slide3 {
-  background-image: url('https://img3.doubanio.com/lpic/s24468373.jpg');
+  background: url(../../assets/img/3.jpg) center/cover;
   color: #fff;
 }
 </style>
