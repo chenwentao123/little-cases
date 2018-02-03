@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            width:1291px;
+            height:1000px;
+            border: 1px solid;
+            position: relative;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        #imgs{
+            width:200%
+        }
+
+        #imgs img {
+            width:1291px;
+            height:1000px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #tabs {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #tabs li {
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            float: left;
+            list-style: none;
+            margin-right: 5px;
+            cursor: pointer;
+            border-radius: 50% 50%;
+        }
+        .slide-enter {
+            transform: translateX(100%);
+        }
+
+        .slide-enter-active,
+        .slide-leave-active {
+            transition: transform 1s linear;
+        }
+
+        .slide-leave-to {
+            transform: translateX(-100%);
+        }
+        #tabs .selected {
+            background: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" @mouseover="mousein" @mouseout="mouseout">
+        <transition-group tag="div" name="slide" id="imgs">
+            <img :key="index" v-show="index==nowIndex" v-for="(item,index) in imgs" :src="item" alt="">
+        </transition-group>
+
+        <ul id="tabs">
+            <li :class="{selected: index==nowIndex}" @mouseover="nowIndex = index" v-for="(item,index) in imgs.length"></li>
+        </ul>
+    </div>
+
+
+    <script src="vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                imgs: [
+                    'image/1.jpg',
+                    'image/2.jpg',
+                    'image/3.jpg',
+                    'image/4.jpg',
+                    'image/5.jpg',
+                    'image/6.jpg',
+                    'image/7.jpg',
+                    'image/8.jpg',
+                    'image/9.jpg',
+                    'image/10.jpg',
+                    'image/11.jpg',
+                    'image/12.jpg',
+                    'image/13.jpg',
+                    'image/14.jpg',
+                    'image/15.jpg',
+                    'image/16.jpg',
+                    'image/17.jpg',
+                    'image/18.jpg',
+                    'image/19.jpg',
+                    'image/20.jpg',
+                ],
+                nowIndex: 0,
+                timer: null
+            },
+            mounted() {
+                this.play();
+            },
+            methods: {
+                mousein() {
+                    clearInterval(this.timer);
+                },
+                mouseout() {
+                    this.play();
+                },
+                play() {
+                    this.timer = setInterval(() => {
+                        this.nowIndex++;
+                        if (this.nowIndex == this.imgs.length) {
+                            this.nowIndex = 0;
+                        }
+                    }, 1600);
+                }
+            }
+
+        });
+    </script>
+</body>
+
+</html>
