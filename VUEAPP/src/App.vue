@@ -19,7 +19,7 @@ export default {
   },
   data () {
     return {
-      isColor:'rgb(33, 150, 243)',
+      isColor:'rgb(150, 0, 0)',
       title: 'Movie'
     }
   },
