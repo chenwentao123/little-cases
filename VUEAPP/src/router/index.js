@@ -20,21 +20,21 @@ export default new Router({
       name: 'Music',
       component: Music,
       // beforeEnter(to, from, next){
-      //   from.name === null ? next('/music') : next();
+      //   from.name === null ? next('/') : next();
       // }
     },{
       path: '/book',
       name: 'Book',      
       component: Book,
       // beforeEnter(to, from, next){
-      //   from.name === null ? next('/music') : next();
+      //   from.name === null ? next('/') : next();
       // }
     },{
       path: '/photo',
       name: 'Photo',      
       component: Photo,
       // beforeEnter(to, from, next){
-      //   from.name === null ? next('/music') : next();
+      //   from.name === null ? next('/') : next();
       // }
     },{
       path: '/moviedetail/:movieId',
