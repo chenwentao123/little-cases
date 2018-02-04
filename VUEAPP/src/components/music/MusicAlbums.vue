@@ -1,6 +1,6 @@
 <template>
 <div>
-    <aplayer :music="musicList" v-if="loadSuccess" :showlrc="true" :mutex="true"></aplayer>
+    <aplayer :music="musicList" v-if="loadSuccess" :showlrc='true' :mutex="true"></aplayer>
 </div>
 
 </template>
@@ -27,7 +27,7 @@ export default {
                     author: element.author,
                     url: element.src,
                     pic: element.musicImgSrc,
-                    lrc: '/static' + element.lrc
+                    lrc: "/static/" + element.lrc
                 });
             });
             this.loadSuccess = true;
@@ -37,11 +37,7 @@ export default {
 </script>
 
 <style scoped>
-div{
-    /* background:url(../../assets/img/bg_image.png) */
-}
 .aplayer{
-    /* color:#ccc; */
     margin-top: 1rem;
 }
 </style>
