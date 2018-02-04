@@ -38,10 +38,10 @@ export default {
 
 <style scoped>
 div{
-    background:url(../../assets/img/bg_image.png)
+    /* background:url(../../assets/img/bg_image.png) */
 }
 .aplayer{
-    color:#ccc;
+    /* color:#ccc; */
     margin-top: 1rem;
 }
 </style>
