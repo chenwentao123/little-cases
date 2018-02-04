@@ -46,7 +46,7 @@ export default {
         default:        
           this.isColor = 'rgb(33, 150, 243)' ;     
       }
-    }
+    },
   }
 }
 </script>
