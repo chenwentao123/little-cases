@@ -1,31 +1,30 @@
 <template>
     <ul class="clearfix">
-        <li class="photo" v-for="(photo,index) in photoList" :key="index">
-            <router-link :to="'/photodetail/'+index"> 
-                <img src="photo.src" alt="">
+       <li class="photo" v-for="(photo, index) in photoList" :key="index">
+            <router-link :to="'/photodetail/'+index">
+                <img :src="photo.src" alt="">   
             </router-link>
-        </li>
+        </li> 
     </ul>
 </template>
 
 <script>
 import axios from 'axios'
 export default {
-    data(){
+    data () {
         return {
-            photoList:[]
+            photoList: []      
         }
     },
-    created(){
-        axios.get('/static/data/photodata.json').
-        then(res => {
+    created () {
+        axios.get('/static/data/photodata.json').then(res=>{
             this.photoList = res.data.photoData;
-            this.$store.dispatch('setPhotoListAction',res.data.photoData);
-        }).catch(() =>{
-            alert('读取数据失败！');
-        })
+            this.$store.dispatch('setPhotoListAction', res.data.photoData);
+        }).catch(()=>{
+            alert('读取数据失败');
+        });
     }
-}
+};
 </script>
 
 <style scoped>
