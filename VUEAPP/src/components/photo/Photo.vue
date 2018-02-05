@@ -1,5 +1,5 @@
 <template>
-    <ul class="clearfix">
+    <ul class="clearfix contain">
        <li class="photo" v-for="(photo, index) in photoList" :key="index">
             <router-link :to="'/photodetail/'+index">
                 <img :src="photo.src" alt="">   
@@ -28,6 +28,10 @@ export default {
 </script>
 
 <style scoped>
+.contain{
+    margin-top:1rem;
+    margin-bottom: 1rem;
+}
 .photo{
     width: 50%;
     float: left;
