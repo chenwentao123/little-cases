@@ -3,6 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from '@/vuex/store.js'
+import VueTouch from 'vue-touch'
+Vue.use(VueTouch, {name: 'v-touch'});
 
 import './assets/css/reset.css'
 import './assets/js/rem.js'
