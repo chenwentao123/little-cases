@@ -7,17 +7,19 @@ import store from '@/vuex/store.js'
 import VueTouch from 'vue-touch'
 Vue.use(VueTouch, {name: 'v-touch'});
 
-import './assets/css/reset.css'
 import './assets/js/rem.js'
+import './assets/css/reset.css'
 
 Vue.config.productionTip = false
 
 global.API_PROXY = 'https://bird.ioliu.cn/v2/?url='
 
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
