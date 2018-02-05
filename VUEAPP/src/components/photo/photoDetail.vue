@@ -1,5 +1,4 @@
 <template>
-  <!-- <h1>{{ $route.params.index }}</h1> -->
   <v-touch @swipeleft="onSwipeLeft" @swiperight="onSwipeRight" @tap="tap" class="container" :style="styleObj">
   </v-touch>
 </template>
